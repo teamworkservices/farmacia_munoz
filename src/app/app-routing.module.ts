@@ -6,7 +6,7 @@ import { LayoutfullComponent } from './layout/layoutfull/layoutfull.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path:'',
     redirectTo: '/login',
     pathMatch: '/full'
   },
@@ -14,7 +14,7 @@ const routes: Routes = [
     path: '',
     children:[
       {
-        path: 'pages',
+        path:'pages',
         component: LayoutfullComponent,
         loadChildren:()=>import('./layout/layout.module').then(m=>m.LayoutModule)
       }
@@ -25,7 +25,11 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forRoot(routes),
+  ],
+  exports:[
+    RouterModule
   ]
 })
 export class AppRoutingModule { }

@@ -5,6 +5,7 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LayoutfullComponent } from './layoutfull/layoutfull.component';
+import { RouterModule, Routes } from '@angular/router';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { LayoutfullComponent } from './layoutfull/layoutfull.component';
   ],
   imports: [
     CommonModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    RouterModule,
   ]
 })
 export class LayoutModule { }
