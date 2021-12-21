@@ -16,8 +16,8 @@ export class DosificacionComponent implements OnInit {
 
   dosificacionData: Dosificacion[] = [
     {id: 1, nombre: 'Hydrogen', descripcion:'Descripcion', codigo: 'H'},
-    {id: 2, nombre: 'Hydrogen', descripcion:'Descripcion', codigo: 'H'},
-    {id: 3, nombre: 'Hydrogen', descripcion:'Descripcion', codigo: 'H'},
+    {id: 2, nombre: 'Hydro', descripcion:'Descripcion', codigo: 'H'},
+    {id: 3, nombre: 'Hogen', descripcion:'Descripcion', codigo: 'H'},
   ];
   
   dataSource !: MatTableDataSource<Dosificacion>;
@@ -26,6 +26,8 @@ export class DosificacionComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource<Dosificacion>([]);
+    this.dataSource.data = this.dosificacionData;
   }
-
 }
+
+
