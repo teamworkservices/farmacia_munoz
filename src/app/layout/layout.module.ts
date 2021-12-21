@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LayoutfullComponent } from './layoutfull/layoutfull.component';
 
+import { SharedModule} from '../shared/shared.module'
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { LayoutfullComponent } from './layoutfull/layoutfull.component';
   ],
   imports: [
     CommonModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    SharedModule
   ]
 })
 export class LayoutModule { }
+
