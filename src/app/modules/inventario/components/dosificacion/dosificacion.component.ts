@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Dosificacion } from 'src/app/shared/models/dosificacion';
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import { CrearDosificacionComponent } from './crear-dosificacion/crear-dosificacion.component';
+import { DosificacionService } from '../../services/dosificacion.service';
+import {of } from 'rxjs';
+import Swal from 'sweetalert2';
+import { EditarDosificacionComponent } from './editar-dosificacion/editar-dosificacion.component';
 
 
 @Component({
@@ -11,23 +17,73 @@ import { Dosificacion } from 'src/app/shared/models/dosificacion';
 
 export class DosificacionComponent implements OnInit {
 
-  displayedColumns: string[] = ['id','nombre','descripcion','codigo'];
-  
+  dosificacionesData: Dosificacion[] = [];
 
-  dosificacionData: Dosificacion[] = [
-    {id: 1, nombre: 'Hydrogen', descripcion:'Descripcion', codigo: 'H'},
-    {id: 2, nombre: 'Hydro', descripcion:'Descripcion', codigo: 'H'},
-    {id: 3, nombre: 'Hogen', descripcion:'Descripcion', codigo: 'H'},
-  ];
+  displayedColumns: string[] = ['id', 'nombre', 'codigo','acciones'];
+
+  dataSource!: MatTableDataSource<Dosificacion>
   
-  dataSource !: MatTableDataSource<Dosificacion>;
- 
-  constructor() { }
+  constructor(public dialog: MatDialog, public dosificacionService:DosificacionService) {
+    
+  }
 
   ngOnInit(): void {
-    this.dataSource = new MatTableDataSource<Dosificacion>([]);
-    this.dataSource.data = this.dosificacionData;
+    this.loadTableDosificacion();
   }
+
+  openCreateDialog(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.width = "50%";
+    dialogConfig.panelClass = 'dialog-custom'
+    
+    const dialogRef = this.dialog.open(CrearDosificacionComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe((result) => {
+      if (!!result) {
+        this.loadDosificacion();
+        this.loadTableDosificacion();
+      }
+    });
+  }
+
+  loadDosificacion(){
+     return this.dosificacionService.getDosificaciones(); 
+  }
+
+  loadTableDosificacion(){
+    this.dataSource = new MatTableDataSource<Dosificacion>([]);
+    this.dataSource.data = this.loadDosificacion();
+  }
+
+  openEditDialog(dosificacion: Dosificacion){
+    
+    const dialogRef = this.dialog.open(EditarDosificacionComponent, {
+      width: "50%",
+      data: dosificacion,
+      panelClass: 'dialog-custom'
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (!!result) {
+        this.loadDosificacion();
+        this.loadTableDosificacion();
+      }
+    });
+  }
+
+  eliminarDosificacion(dosificacion: Dosificacion){
+
+    Swal.fire({
+      title: '¿Deseas eliminar la dosificación?',
+      showCancelButton: true,
+      confirmButtonText: 'Eliminar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.dosificacionService.eliminarDosificacion(dosificacion.id);
+        this.loadTableDosificacion();
+        Swal.fire('Saved!', '', 'success')
+      }
+    })
+
 }
 
+}
 

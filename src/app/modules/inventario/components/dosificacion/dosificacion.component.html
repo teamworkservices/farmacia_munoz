@@ -1,9 +1,17 @@
  <div>
     <mat-toolbar class="titulo">
-        <span class="green">Inicio</span>
-        <span>Otro</span>
+        <span class="green">Inicio/</span>
+        <span>Dosificación</span>
     </mat-toolbar>
 </div>
+
+<mat-toolbar>
+  <button (click)="openCreateDialog()" mat-raised-button>
+    <mat-icon>add_circle_outline</mat-icon>
+    AGREGAR
+  </button>
+</mat-toolbar>
+
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -25,6 +33,18 @@
       <ng-container matColumnDef="codigo">
         <th mat-header-cell *matHeaderCellDef> Codigo </th>
         <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th *matHeaderCellDef id="acciones" mat-header-cell>ACCIÓN</th>
+        <td *matCellDef="let element;" mat-cell>
+          <a (click)="openEditDialog(element)" class="green" matTooltip="Editar">
+            <mat-icon class="mat-icon-green">edit</mat-icon>
+          </a>
+          <a (click)="eliminarDosificacion(element)" class="green margin-l" matTooltip="Eliminar">
+            <mat-icon class="mat-icon-green">delete_forever</mat-icon>
+          </a>
+        </td>
       </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -4,10 +4,14 @@ import { CommonModule } from '@angular/common';
 import { InventarioRoutingModule } from './inventario-routing.module';
 import { DosificacionComponent } from './components/dosificacion/dosificacion.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CrearDosificacionComponent } from './components/dosificacion/crear-dosificacion/crear-dosificacion.component';
+import { EditarDosificacionComponent } from './components/dosificacion/editar-dosificacion/editar-dosificacion.component';
 
 @NgModule({
   declarations: [
-    DosificacionComponent
+    DosificacionComponent,
+    CrearDosificacionComponent,
+    EditarDosificacionComponent
   ],
   imports: [
     CommonModule,
