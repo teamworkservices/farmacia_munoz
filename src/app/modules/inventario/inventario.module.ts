@@ -6,12 +6,19 @@ import { DosificacionComponent } from './components/dosificacion/dosificacion.co
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CrearDosificacionComponent } from './components/dosificacion/crear-dosificacion/crear-dosificacion.component';
 import { EditarDosificacionComponent } from './components/dosificacion/editar-dosificacion/editar-dosificacion.component';
+import { LaboratoriosComponent } from './laboratorios/laboratorios.component';
+import { CrearLaboratoriosComponent } from './laboratorios/crear-laboratorios/crear-laboratorios.component';
+import { EditarLaboratoriosComponent } from './laboratorios/editar-laboratorios/editar-laboratorios.component';
+
 
 @NgModule({
   declarations: [
     DosificacionComponent,
     CrearDosificacionComponent,
-    EditarDosificacionComponent
+    EditarDosificacionComponent,
+    LaboratoriosComponent,
+    CrearLaboratoriosComponent,
+    EditarLaboratoriosComponent,
   ],
   imports: [
     CommonModule,
