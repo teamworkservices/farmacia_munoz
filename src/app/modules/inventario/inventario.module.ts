@@ -9,6 +9,9 @@ import { EditarDosificacionComponent } from './components/dosificacion/editar-do
 import { LaboratoriosComponent } from './laboratorios/laboratorios.component';
 import { CrearLaboratoriosComponent } from './laboratorios/crear-laboratorios/crear-laboratorios.component';
 import { EditarLaboratoriosComponent } from './laboratorios/editar-laboratorios/editar-laboratorios.component';
+import { MedicamentoComponent } from './medicamento/medicamento.component';
+import { CrearMedicamentoComponent } from './medicamento/crear-medicamento/crear-medicamento.component';
+import { EditarMedicamentoComponent } from './medicamento/editar-medicamento/editar-medicamento.component';
 
 
 @NgModule({
@@ -19,6 +22,9 @@ import { EditarLaboratoriosComponent } from './laboratorios/editar-laboratorios/
     LaboratoriosComponent,
     CrearLaboratoriosComponent,
     EditarLaboratoriosComponent,
+    MedicamentoComponent,
+    CrearMedicamentoComponent,
+    EditarMedicamentoComponent,
   ],
   imports: [
     CommonModule,
