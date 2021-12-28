@@ -18,7 +18,7 @@
       </mat-grid-tile>
 
       <mat-grid-tile [colspan]="1" [rowspan]="1">
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" >
           <input matInput #input maxlength="3" autocomplete="off" formControlName="codigoBarraCtrl">
         </mat-form-field>
       </mat-grid-tile>
@@ -39,8 +39,8 @@
 
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <mat-form-field appearance="fill">
-            <mat-select>
-                <mat-option *ngFor="let nombreLab of nombresLaboratorios" [value] = nombreLab formControlName="laboratorioCtrl">
+            <mat-select formControlName="laboratorioCtrl">
+                <mat-option *ngFor="let nombreLab of nombresLaboratorios" [value] = nombreLab >
                     {{ nombreLab }}
                 </mat-option>
             </mat-select>
@@ -75,8 +75,8 @@
 
       <mat-grid-tile [colspan]="1" [rowspan]="1">
         <mat-form-field appearance="fill">
-          <mat-select>
-            <mat-option *ngFor="let nombreDos of nombresDosificaciones" [value] = nombreDos formControlName="dosificacionCtrl">
+          <mat-select formControlName="dosificacionCtrl">
+            <mat-option *ngFor="let nombreDos of nombresDosificaciones" [value] = nombreDos >
                 {{ nombreDos }}
             </mat-option>
         </mat-select>

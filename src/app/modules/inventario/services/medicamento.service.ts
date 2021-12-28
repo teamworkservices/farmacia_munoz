@@ -13,19 +13,19 @@ export class MedicamentoService {
         codigoCompra: 'AK', 
         codigoBarra: '08',
         nombre:'Aspirina',
-        laboratorio:'MK',
+        laboratorio:'Bayer',
         cantidad:'1',
         precio:'500',
-        dosificacion:'20mg',
+        dosificacion:'50mg/12h',
     },
     {   id: 2,
         codigoCompra: 'AK', 
         codigoBarra: '09',
         nombre:'Descongel',
-        laboratorio:'Bayer',
+        laboratorio:'Genfar',
         cantidad:'2',
         precio:'1000',
-        dosificacion:'40mg',
+        dosificacion:'30mg/6h',
     }
   ];
 
