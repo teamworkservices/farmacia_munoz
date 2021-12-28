@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Dosificacion } from '../../shared/models/dosificacion';
 import { DosificacionComponent } from './components/dosificacion/dosificacion.component';
 import { LaboratoriosComponent } from './laboratorios/laboratorios.component';
+import { MedicamentoComponent } from './medicamento/medicamento.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'laboratorios',
     component: LaboratoriosComponent
+  },
+  {
+    path: 'medicamento',
+    component: MedicamentoComponent
   }
 ];
 
@@ -20,3 +25,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class InventarioRoutingModule { }
+

@@ -9,8 +9,8 @@ import { environment } from '../../../../environments/environment.prod';
 export class LaboratoriosService {
 
   laboratoriosData: Laboratorios[] = [
-    {id: 1, nombre: 'Lorena Vejarano', descripcion:'Descripcion', codigo: 'L'},
-    {id: 2, nombre: 'Martha Perdomo', descripcion:'Descripcion', codigo: 'L'},
+    {id: 1, nombre: 'Bayer', descripcion:'Descripcion', codigo: 'B'},
+    {id: 2, nombre: 'Genfar', descripcion:'Descripcion', codigo: 'G'},
   ];
 
   constructor() { }

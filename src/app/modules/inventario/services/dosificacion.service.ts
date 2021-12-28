@@ -10,9 +10,9 @@ export class DosificacionService {
 
 
   dosificacionData: Dosificacion[] = [
-    {id: 1, nombre: 'Hydrogen', descripcion:'Descripcion', codigo: 'H'},
-    {id: 2, nombre: 'Hydro', descripcion:'Descripcion', codigo: 'H'},
-    {id: 3, nombre: 'Hogenn', descripcion:'Descripcion', codigo: 'H'},
+    {id: 1, nombre: '50mg/12h', descripcion:'Descripcion', codigo: 'AK1'},
+    {id: 2, nombre: '30mg/6h', descripcion:'Descripcion', codigo: 'AK2'},
+    {id: 3, nombre: '15mg/8h', descripcion:'Descripcion', codigo: 'AK3'},
   ];
 
   constructor() { }

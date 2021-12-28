@@ -1,0 +1,98 @@
+<form [formGroup]="form" (ngSubmit)="editarMedicamento()">
+
+    <mat-grid-list cols="2" rowHeight="75px">
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-label>Código compra:</mat-label>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill"  hintLabel="Max 3 caracteres">
+          <input matInput #input maxlength="3" autocomplete="off" formControlName="codigoCompraCtrl">
+          <mat-hint align="end"> {{input.value?.length || 0}}/3</mat-hint>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-label>Código barra:</mat-label>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill" >
+          <input matInput #input maxlength="3" autocomplete="off" formControlName="codigoBarraCtrl">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-label>Nombre:</mat-label>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <input matInput #input maxlength="20" autocomplete="off" formControlName="nombreCtrl">
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-label>Laboratorio:</mat-label>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+            <mat-select formControlName="laboratorioCtrl">
+                <mat-option *ngFor="let nombreLab of nombresLaboratorios" [value] = nombreLab >
+                    {{ nombreLab }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-label>Cantidad:</mat-label>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <input matInput #input maxlength="20" autocomplete="off" formControlName="cantidadCtrl">
+        </mat-form-field>
+      </mat-grid-tile>
+
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-label>Precio:</mat-label>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <input matInput #input maxlength="20" autocomplete="off" formControlName="precioCtrl">
+        </mat-form-field>
+      </mat-grid-tile>
+
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-label>Dosificación:</mat-label>
+      </mat-grid-tile>
+
+      <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <mat-form-field appearance="fill">
+          <mat-select formControlName="dosificacionCtrl">
+            <mat-option *ngFor="let nombreDos of nombresDosificaciones" [value] = nombreDos >
+                {{ nombreDos }}
+            </mat-option>
+        </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+
+
+      <mat-grid-tile [colspan]="2" [rowspan]="1">
+        <button [disabled]="form.invalid" color="primary" mat-button
+                (click)="confirmModal()" mat-raised-button type="submit">
+          <mat-icon>save</mat-icon>
+          GUARDAR
+        </button>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+</form>
+
+
