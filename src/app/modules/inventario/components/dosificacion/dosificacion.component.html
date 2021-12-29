@@ -10,7 +10,10 @@
     <mat-icon>add_circle_outline</mat-icon>
     AGREGAR
   </button>
+
+  <app-buscador-dosificacion class="margin-l" (dosificacionSeleccionado)="setDosificacionSeleccionada($event)" [placeholderTitulo]="'Buscar ss dosificación'"></app-buscador-dosificacion>
 </mat-toolbar>
+
 
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -51,3 +54,6 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
+<div *ngIf="dosificacionEmitida!=null && dosificacionEmitida.nombre!=undefined">
+  {{ dosificacionEmitida.codigo + ' - ' + dosificacionEmitida.nombre}}
+</div> 

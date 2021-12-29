@@ -18,13 +18,13 @@ import { EditarDosificacionComponent } from './editar-dosificacion/editar-dosifi
 export class DosificacionComponent implements OnInit {
 
   dosificacionesData: Dosificacion[] = [];
-
   displayedColumns: string[] = ['id', 'nombre', 'codigo','acciones'];
-
   dataSource!: MatTableDataSource<Dosificacion>
   
+  dosificacionEmitida: Dosificacion;
+
   constructor(public dialog: MatDialog, public dosificacionService:DosificacionService) {
-    
+    this.dosificacionEmitida = new Dosificacion();
   }
 
   ngOnInit(): void {
@@ -83,6 +83,10 @@ export class DosificacionComponent implements OnInit {
       }
     })
 
+}
+
+setDosificacionSeleccionada(dosificacion:Dosificacion){
+  this.dosificacionEmitida = dosificacion;
 }
 
 }
